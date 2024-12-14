@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduation Days Counter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #days {
+            font-size: 2em;
+        }
+    </style>
+</head>
+<body>
+    <div id="days">0</div>
+    <script>
+        const graduationDate = new Date('2025-6-10'); // 你的毕业日期
+        function updateDays() {
+            const currentDate = new Date();
+            const diffTime = Math.abs(currentDate - graduationDate);
+            const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+            document.getElementById('days').innerText = diffDays;
+        }
+        setInterval(updateDays, 1000); // 每秒更新一次
+        updateDays(); // 初始调用
+    </script>
+</body>
+</html>
